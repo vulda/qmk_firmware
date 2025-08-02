@@ -23,17 +23,12 @@
 // Workarounds for sleep/wake issues
 #define USB_SUSPEND_WAKEUP_DELAY 250
 
-// NOTE: There is a bug in AVR deep sleep, which
-// causes the MCU to stop responding in some cases.
-// Disabling the watchdog prevents the MCU from entering 
-// power down, while still turning off LEDs, audio, etc.
-// See qmk_firmware/issues/20087 for background
 #undef WDT_vect
 
 /* split config */
 // #define SPLIT_USB_DETECT // Enable if you have issues with USB
-#define SOFT_SERIAL_PIN E6
-#define SPLIT_HAND_PIN B6
+#define SOFT_SERIAL_PIN GP7
+#define SPLIT_HAND_PIN GP10
 #define DISABLE_SYNC_TIMER
 #define SPLIT_HAND_PIN_LOW_IS_LEFT
 
@@ -49,23 +44,23 @@
  * See matrix.c for more details.
 */
 // Left side
-#define MATRIX_ROW_PINS { D4, C6, D7, F4, B4, B5 }
-#define MATRIX_COL_MUX_PINS { F7, F6, F5 }
+#define MATRIX_ROW_PINS { GP4, GP5, GP6, GP29, GP8, GP9 }
+#define MATRIX_COL_MUX_PINS { GP26, GP27, GP28 }
 
 //Right side
-#define MATRIX_ROW_PINS_RIGHT { F4, F5, F6, F7, B1, B3 }
-#define MATRIX_COL_MUX_PINS_RIGHT { D7, C6, D4 }
-#define MATRIX_EXT_PIN_RIGHT B6
+#define MATRIX_ROW_PINS_RIGHT { GP29, GP28, GP27, GP26, GP18, GP20 }
+#define MATRIX_COL_MUX_PINS_RIGHT { GP6, GP5, GP4 }
+#define MATRIX_EXT_PIN_RIGHT GP10
 
 /* Optional speaker pin */
-#define AUDIO_PIN B6
+#define AUDIO_PIN GP10
 #define OLED_BRIGHTNESS 128
 #define OLED_TIMEOUT 30000
 
 #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET // Activates the double-tap behavior
 #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_TIMEOUT 200U // Timeout window in ms in which the double tap can occur.
 #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_LED GP17 // Specify a optional status led by GPIO number which blinks when entering the bootloader Pre-defined RP2040 boards
-#define SERIAL_USART_TX_PIN B6     // The GPIO pin that is used split communication.
+#define SERIAL_USART_TX_PIN GP10     // The GPIO pin that is used split communication.
 
 // Selectively undefine to save space
 // VIA support won't fit otherwise
@@ -83,3 +78,4 @@ endif //RGB LIGHT_ENABLE
 // Split Options
 define SPLIT_TRANSPORT_MIRROR
 #define SPLIT_USB_DETECT
+
