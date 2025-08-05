@@ -27,7 +27,7 @@
 
 /* split config */
 // #define SPLIT_USB_DETECT // Enable if you have issues with USB
-#define SOFT_SERIAL_PIN GP7
+#define SERIAL_PIO_USE_PIO1 GP7
 #define SPLIT_HAND_PIN GP10
 #define DISABLE_SYNC_TIMER
 #define SPLIT_HAND_PIN_LOW_IS_LEFT
@@ -78,4 +78,5 @@ endif //RGB LIGHT_ENABLE
 // Split Options
 define SPLIT_TRANSPORT_MIRROR
 #define SPLIT_USB_DETECT
+
 
